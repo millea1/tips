@@ -7,5 +7,18 @@
   "ABOUT_REWARD": "En récompense, voici une liste de géniaux informaticiens :",
   "INPUT_HINT": "Ajouter un nouvel informaticien...",
   "ADD_BTN_TEXT": "Ajouter",
-  "SUCCESS_MSG": "Votre déploiement d'Angular Seed Advanced a parfaitement fonctionné."
+  "SUCCESS_MSG": "Votre déploiement d'Angular Seed Advanced a parfaitement fonctionné.",
+
+  "LOGIN": {
+    "LOGIN": "S'identifier",
+    "TITLE": "S'identifier",
+    "SESSION_STARTED": "Déjà en session",
+    "USER_NAME": "User Name",
+    "EMAIL": "Email",
+    "PASSWORD": "Mot de passe",
+    "FORGOT_PASSWORD": "Forgot Password?",
+    "FAILED": "Sign In Failed!. Please try again.",
+    "NEW_PASSWORD": "New Password",
+    "UPDATE": "Update"
+  }
 }

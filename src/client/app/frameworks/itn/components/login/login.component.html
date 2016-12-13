@@ -1,0 +1,67 @@
+  <div class="row">
+    <div class="col-xs-11 col-sm-6 col-md-4 center-block col-centered center-block">
+        <div id="loginbox" class="row">
+          <br/>
+          <br/>    <br/>    <br/>
+          <div class="panel panel-info">
+            <div class="panel-heading ">
+              <div class="panel-title"><strong>{{'LOGIN.TITLE'|translate}}</strong>
+                <a href="" (click)="forgotPassword()" class="pull-right">
+                  <h6>{{'LOGIN.FORGOT_PASSWORD'|translate}}</h6><div></div>
+                </a>
+              </div>
+            </div>
+            <div class="panel-body">
+              <!-- div *ngIf="loginFailed" class="alert alert-danger itnAlert" role="alert"><i class="fa fa-warning"></i> &nbsp; {{'LOGIN.FAILED'|translate}}</div -->
+              <form [formGroup]="loginForm"
+                    (ngSubmit)="doLogin(loginForm.value)" class="form">
+                <fieldset class="col-xs-11 center-block">
+                  <div itn-show-errors class="form-group">
+                    <label class="control-label">{{'LOGIN.USER_NAME'|translate}}</label>
+                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i>
+                                        </span>
+                      <!-- input type="text" name="username" id="username_fake" class="hidden" autocomplete="off" style="display: none;" ngModel -->
+                      <input [formControl]="loginForm.controls['username'] "type="text" autocomplete="off" class="form-control" maxlength="128" formControlName="username" id="username" value="" required placeholder="Login Id" itn-enter="doLogin()" >
+                    </div>
+                    <!-- p class="help-block" ng-show="loginform.$dirty && loginform.username.$error.required">{{'LOGIN.USER_NAME'|translate}} {{'GENERAL.IS_REQUIRED'|translate}}</p -->
+                  </div>
+                  <div itn-show-errors class="form-group">
+                    <label class="control-label">{{'LOGIN.PASSWORD'|translate}}</label>
+                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i>
+                                        </span>
+                      <!-- input type="password" name="password" id="password_fake" class="hidden" autocomplete="off" style="display: none;" ngModel -->
+                      <input [formControl]="loginForm.controls['password']" type="password" autocomplete="off" class="form-control" maxlength="32" itn-enter="doLogin.value" formControlName="password" id="password" required placeholder="Password" >
+                    </div>
+                    <!-- p class="help-block" ng-show="loginForm.$dirty && loginForm.password.$error.required">{{'LOGIN.PASSWORD'|translate}} {{'GENERAL.IS_REQUIRED'|translate}}</p -->
+                  </div>
+    <!--
+                  <div itn-show-errors class="form-group" ng-show="isFirstTime">
+                    <label class="control-label">{{'LOGIN.NEW_PASSWORD'|translate}}</label>
+                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i>
+                                        </span>
+                      <input type="password" name="newPassword" id="newPassword_fake" class="hidden" autocomplete="off" style="display: none;">
+                      <input type="password" autocomplete="off" class="form-control" maxlength="32" itn-enter="doUpdate()" ng-model="login.user.newPassword" name="newPassword" id="newPassword" required placeholder="New Password">
+                    </div>
+                    <p class="help-block" ng-show="loginform.$dirty && loginform.password.$error.required">{{'LOGIN.NEW_PASSWORD'|translate}} {{'GENERAL.IS_REQUIRED'|translate}}</p>
+                  </div>
+    -->
+                  <div class="form-group" >
+                    <button type="submit" class="ui button">Login</button>
+                    <!-- a id="btn-login" href="#" class="btn btn-success pull-right">{{'LOGIN.LOGIN'|translate}}  </a -->
+                  </div>
+    <!--
+                  <div class="form-group" ng-show="isFirstTime">
+                    <a id="btn-login" href="#" ng-click="doUpdate()" class="btn btn-success pull-right">{{'LOGIN.UPDATE'|translate}}  </a>
+                  </div>
+    -->
+                  <!-- <pre>{{user|json}}</pre> -->
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>

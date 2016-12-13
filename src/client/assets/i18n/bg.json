@@ -7,5 +7,18 @@
   "ABOUT_REWARD": "За награда, тук е списък на страхотни компютърни специалисти:",
   "INPUT_HINT": "Въвеждане на нов компютърен специалист...",
   "ADD_BTN_TEXT": "Добави",
-  "SUCCESS_MSG": "Вашият разполагане на ъгловото Seed Advanced работи перфектно."
+  "SUCCESS_MSG": "Вашият разполагане на ъгловото Seed Advanced работи перфектно.",
+
+  "LOGIN": {
+    "LOGIN": "Влизане",
+    "TITLE": "Влизане",
+    "SESSION_STARTED": "Cесия вече започна",
+    "USER_NAME": "User Name",
+    "EMAIL": "електронна поща",
+    "PASSWORD": "парола",
+    "FORGOT_PASSWORD": "Forgot Password?",
+    "FAILED": "Sign In Failed!. Please try again.",
+    "NEW_PASSWORD": "New Password",
+    "UPDATE": "Update"
+  }
 }

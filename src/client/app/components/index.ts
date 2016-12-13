@@ -1,13 +1,13 @@
-import { AppComponent } from './app.component';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
+import { ItnAppComponent } from './itn.app.component';
+import { ItnAboutComponent } from './about/itn.about.component';
+import { ItnHomeComponent } from './home/itn.home.component';
 
 export const APP_COMPONENTS: any[] = [
-  AppComponent,
-  AboutComponent,
-  HomeComponent
+  ItnAppComponent,
+  ItnAboutComponent,
+  ItnHomeComponent
 ];
 
-export * from './app.component';
-export * from './about/about.component';
-export * from './home/home.component';
+export * from './itn.app.component';
+export * from './about/itn.about.component';
+export * from './home/itn.home.component';

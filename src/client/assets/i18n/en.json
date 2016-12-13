@@ -7,5 +7,157 @@
   "ABOUT_REWARD": "For reward, here is a list of awesome computer scientists:",
   "INPUT_HINT": "Enter a new computer scientist...",
   "ADD_BTN_TEXT": "Add",
-  "SUCCESS_MSG": "Your deployment of Angular Seed Advanced worked perfectly."
+  "SUCCESS_MSG": "Your deployment of Angular Seed Advanced worked perfectly.",
+
+  "GENERAL": {
+    "OPTIONAL": "Optional",
+    "REQUIRED_FIELDS": "Required Fields",
+    "IS_REQUIRED": "is required",
+    "IS_INVALID": "is invalid",
+    "NUMBER_FIELD": "must be a positive whole number",
+    "NUMBER_DECIMAL_FIELD": "must be a positive number",
+    "VALID_DATE": "Date must be valid and in mm/dd/yyyy format",
+    "VALID_PHONE": "Valid formats 999-999-9999, 1-(999)999-9999, +1 800 999 9999",
+    "LINK_CANCEL": "Cancel",
+    "LINK_RESET": "Reset",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+    "CANCEL": "Cancel",
+    "SAVE_AND_CLOSE": "Save And Close",
+    "ITEMS": "Items",
+    "USER_ACCOUNTS":"accounts",
+    "PER_PAGE": "per page",
+    "HIDE_UPDATES": "Hide Updates",
+    "SHOW_UPDATES": "Show Updates",
+    "DOWNLOAD": "Download",
+    "GMT": "GMT"
+  },
+  "LOGIN": {
+    "LOGIN": "Log In",
+    "TITLE": "Sign In",
+    "SESSION_STARTED": "Session is already started",
+    "USER_NAME": "User Name",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "FORGOT_PASSWORD": "Forgot Password?",
+    "FAILED": "Sign In Failed!. Please try again.",
+    "NEW_PASSWORD": "New Password",
+    "UPDATE": "Update"
+  },
+  "INSPECTION": {
+    "INSPECTION": {
+      "TITLE": "Inspections",
+      "FAILED_MSG_1" :"Not all Errors may be shown here.",
+      "FAILED_MSG_2" :"A complete list can be downloaded from the",
+      "PAGE" : "page",
+      "DISPLAY_BAR": {
+        "REFRESH_BTN": "Refresh",
+        "CREATE_SCHEDULE_BTN": "Create Schedule",
+        "START_LOAD_INSPECTION_BTN": "Start Load Inspection",
+        "UPLOAD_BTN": "Upload",
+        "CREATE_STORE_LOCATION": "Create Store Location",
+        "CREATE_NEW_ITEM": "Create New Item",
+        "UPLOAD_AND_REGISTER": "Upload Items",
+        "DOWNLOAD_ITEMS": "Download Items",
+        "DELETE_RECORDS": "Delete Records",
+        "MORE": "More..."
+      },
+      "TABS": {
+        "HOME": "Home",
+        "HELP": "Help",
+        "INSPECTIONS": "Inspections",
+        "PICKSLOTS": "PickSlots",
+        "SUPPLIER_ITEM": "Supplier Item",
+        "INBOUND": "Inbound",
+        "OUTBOUND": "Outbound",
+        "LOAD": "Load"
+      },
+      "GRID": {
+        "COLUMNS": {
+          "DATE": "Date",
+          "REGION": "Region",
+          "MARKET": "Market",
+          "RETAILER": "Retailer",
+          "STORE_LOCATION": "Store Location",
+          "INSPECTION_STATUS": "Inspection Status",
+          "APPOINTMENT_NBR": "Appt. No.",
+          "ETA": "ETA",
+          "PURCHASE_ORDER": "PO",
+          "SUPPLIER": "Supplier",
+          "CODE": "Code",
+          "ITEM": "Item",
+          "UPLOAD_STATUS": "Upload Status"
+        },
+        "DISPLAY_BAR": {
+          "REFRESH_BTN": "Refresh",
+          "CREATE_SCHEDULE_BTN": "Create Schedule",
+          "START_LOAD_INSPECTION_BTN": "Start Load Inspection",
+          "UPLOAD_BTN": "Upload",
+          "CREATE_STORE_LOCATION": "Create Store Location",
+          "CREATE_NEW_ITEM": "Create New Item",
+          "UPLOAD_AND_REGISTER": "Upload Items",
+          "PUBLISH_ITEMS": "Publish Items",
+          "REVIEW_CICS": "Review Items",
+          "DOWNLOAD_ITEMS": "Download Items",
+          "DELETE_RECORDS": "Delete Records",
+          "GET_GTIN_TEMPLATE": "Get Catalog Template",
+          "MORE": "More..."
+        }
+      },
+      "NO_INBOUND_INSPECTIONS": "No inbound inspections found.",
+      "VIEW_STATUS": "View Status",
+      "DMS_STATUS": "DMS Status",
+      "NOTIFICATION_STATUS": "Notification Status",
+      "PUBLICATION_STATUS": "Publication Status",
+      "GDSN_PRODUCT_DATA": "GDSN Product Data",
+      "SUBSCRIBER_GLN": "Subscriber/GLN",
+      "BRAND": "Brand"
+    }
+  },
+  "HOME": {
+    "MENU": {
+      "HOME": "Home",
+      "HELP": "Help",
+      "INSPECTIONS": "Inspections",
+      "PICK_SLOTS": "Pick Slots",
+      "SUPPLIER_ITEM": "Supplier Item",
+      "INSPECTION_USERS": "Users",
+      "INSPECTION_SCHEDULE": "Inspection Schedule",
+      "RETAIL_ADMIN": {
+        "DISTRIBUTION_CENTERS": "Distribution Centers",
+        "INSPECTIONS": "Inspections",
+        "ITEMS": "Items",
+        "SHIP_FROM_LOCS": "Ship From Locations",
+        "SUPPLIERS": "Suppliers",
+        "USERS": "Users"
+      },
+      "HQ_USER": {
+        "DISTRIBUTION_CENTERS": "Distribution Centers",
+        "INSPECTIONS": "Inspections",
+        "ITEMS": "Items",
+        "SHIP_FROM_LOCS": "Ship From Locations",
+        "SUPPLIERS": "Suppliers",
+        "USERS": "Users"
+      },
+      "THIRDPARTY_ADMIN": {
+        "INSPECTIONS": "Inspections",
+        "ITEMS": "Items",
+        "RETAILERS": "retailers",
+        "STORES": "Stores",
+        "USERS": "Users"
+      },
+      "HELP": "Help",
+      "LOGIN": "Log In",
+      "LOGOUT": "Log Out",
+      "HELP": "Help",
+      "CONTACT": "Contact Us",
+      "WELCOME_TITLE": "Welcome, ",
+      "HELP_TEXT": "Help Information",
+      "CONTACTUS_TEXT": "FRESH_support@itradenetwork.com <br/>Phone: (925) 660 1360 <br/>Hours: 8:00 am - 5:00 pm Pacific Time; <br/>Monday - Friday"
+    },
+    "FOOTER": {
+      "COPYRIGHT": "{{currentYear}} iTradeNetwork All rights reserved."
+    }
+  }
+
 }

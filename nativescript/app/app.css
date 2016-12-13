@@ -1,27 +1,22 @@
-@import 'nativescript-theme-core/css/core.light.css';
+@import url("~/platform.css");
 
-.action-bar {
-  background-color: #3280CF;
-  color:white;
+ActionBar {
+    background-color: black;
+    color: white;
 }
-.btn-primary {
-  background-color: #106CC8;
+
+Page {
+    background-color: white;
+    font-size: 15;
 }
 TextField {
-  margin: 15 15 0 15;
-}
-.link {
-  border-width: 0;
-  background-color: transparent;
-}
-.pink {
-  color: #FF45F9;
+    padding: 10;
+    font-size: 13;
 }
 
-.odd {
-    background-color: #efefef;
+.small-spacing {
+    margin: 5;
 }
-
-.even {
-    background-color: #fff;
+.medium-spacing {
+    margin: 10;
 }

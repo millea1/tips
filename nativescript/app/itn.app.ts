@@ -1,5 +1,5 @@
 // nativescript
-import { NativeScriptModule, platformNativeScriptDynamic } from 'nativescript-angular';
+import { NativeScriptModule, platformNativeScriptDynamic } from 'nativescript-angular/platform';
 
 /**
  * Config
@@ -23,7 +23,6 @@ import { MultilingualService } from './app/frameworks/i18n/services/multilingual
 MultilingualService.SUPPORTED_LANGUAGES = AppConfig.SUPPORTED_LANGUAGES;
 
 // app
-//import { NativeModule } from './native.module';
 import { ItnNativeModule } from './itn.native.module';
-//platformNativeScriptDynamic().bootstrapModule(NativeModule);
+
 platformNativeScriptDynamic().bootstrapModule(ItnNativeModule);
