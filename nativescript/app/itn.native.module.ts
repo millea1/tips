@@ -1,10 +1,10 @@
 // nativescript
 import { NativeScriptModule, NativeScriptFormsModule, NativeScriptHttpModule, NativeScriptRouterModule, RouterExtensions as TNSRouterExtensions } from 'nativescript-angular';
 // import { RouterExtensions as TNSRouterExtensions } from 'nativescript-angular/router';
-import { Http } from '@angular/http';
 
 // angular
 import { NgModule } from '@angular/core';
+import { Http } from '@angular/http';
 
 // libs
 import { StoreModule } from '@ngrx/store';
@@ -14,8 +14,7 @@ import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-tra
 // app
 import { WindowService, ConsoleService, RouterExtensions } from './app/frameworks/core/index';
 import { NSItnAppComponent } from './pages/app/itn.app.component';
-import { ItnAboutComponent } from './app/components/about/itn.about.component';
-import { ItnHomeComponent } from './app/components/home/itn.home.component';
+import { APP_COMPONENTS } from './app/components';
 import { routes } from './app/components/itn.routes';
 
 // feature modules
@@ -47,8 +46,7 @@ import { NS_ANALYTICS_PROVIDERS } from './shared/nativescript/index';
     ItnModule
   ],
   declarations: [
-    ItnHomeComponent,
-    ItnAboutComponent
+    ...APP_COMPONENTS
   ],
   exports: [
     NativeScriptModule,

@@ -5,7 +5,7 @@ import { NativeScriptModule, platformNativeScriptDynamic } from 'nativescript-an
  * Config
  * Seed provided configuration options
  */
-import { Config } from './app/frameworks/core/index';
+import { Config } from './app/frameworks/core/utils/config';
 import { Page } from 'ui/page';
 Config.PageClass = Page;
 

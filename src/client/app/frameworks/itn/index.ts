@@ -1,4 +1,3 @@
-import { LoginComponent } from './components';
 //import { IUTILITY_RETURN, IUTILITY_RETURN_DI }  from './interfaces';
 // import { MERCH_COMPANY_TABLE } from './services';
 import { ICOMPANY_ROW, ICOMPANY_ROW_DI } from './services';
@@ -13,13 +12,12 @@ import { ItnUtilsService } from './utils';
 
 
 // components
-export * from './components';
+//export * from './components';
 export * from './interfaces';
 export * from './services';
 export * from './utils';
 
-export const APP_COMPONENTS: Array<any> = [
-  LoginComponent
+export const ITN_COMPONENTS: Array<any> = [
 ];
 
 export const APP_PROVIDERS: Array<any> = [

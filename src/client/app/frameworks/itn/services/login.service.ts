@@ -25,12 +25,12 @@ export class LoginService {
 
 
   constructor(
-    public sherpaService : SherpaService,
-    public localDbService : PersistService,
-    public globalService : GlobalService,
-    public appUser : AppUser,
-    public itnUtils : ItnUtilsService,
-    public freshUtils : FreshUtilsService
+    private sherpaService : SherpaService,
+    private localDbService : PersistService,
+    private globalService : GlobalService,
+    private appUser : AppUser,
+    private itnUtils : ItnUtilsService,
+    private freshUtils : FreshUtilsService
   ) {}
 
 
@@ -39,6 +39,8 @@ export class LoginService {
     var _self = this;
     let returnObj;
 
+    console.log("login seq user: " + userId);
+    console.log("login seq pswd: " + pswd);
 
     return Observable.create(seqObserver => {
 
@@ -50,10 +52,16 @@ export class LoginService {
       };
 
       _self.sherpaService.loginAuthenticate(userId, pswd).subscribe((itnResponse) => {
-        parseObj.data = itnResponse;
-        _self.itnUtils.itnParseHttpData(parseObj, this.appUser).data;
+//        console.log(JSON.stringify(itnResponse));
+//        if (itnResponse.status === 'SUCCESS') {
+
+//        }
+//        else {
+          parseObj.data = itnResponse;
+          this.itnUtils.itnParseHttpData(parseObj, this.appUser).data;
+//        }
 //        _self.globalService.appUser = _self.appUser;
-        _self.itnUtils.itnLog("Login success!" + this.appUser.userid);
+        _self.itnUtils.itnLog("Login success! " + this.appUser.userid + " - Token: " + this.appUser.token);
         this.appUser.user =  this.appUser.userid;
         roles             =  this.appUser.roles;
 
@@ -120,12 +128,14 @@ export class LoginService {
 
     }).catch(error => {
       let look = error;
+      console.log("error in loginseq...", error)
       Observable.throw(error);
     });
   }
 
   postLoginInit (roles) {
-
+    console.log("top of postLoginInit...clearing applicationSettings");
+    applicationSettings.clear();
     let userid: string = applicationSettings.getString("userid");
     let userroles: string = applicationSettings.getString("userroles");
 
@@ -136,6 +146,7 @@ export class LoginService {
     else {
       applicationSettings.setString("currentActorRole", "");
     }
+    console.log("applicationSettings written to...");
     //set logged in
     this.appUser.loggedin = true;
 

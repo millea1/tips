@@ -61,7 +61,7 @@ export class SQLiteService {
 
   }
 
-  getDatabase() : Promise {
+  getDatabase() : any {
     if (this.database !== null && this.database.isOpen()) {
       return this.database;
     }
@@ -102,6 +102,10 @@ export class Company {
 
 
   addCompanyRows( companyRows : Array<CompanyRow>) : Observable<string> {
+    console.log("incoming companyRow count: " + companyRows.length);
+    for (var i = 0; i < companyRows.length; i++) {
+      console.log(JSON.stringify(companyRows[i]));
+    }
 /*
     return Observable.create(dbAddObserver => {
 //        let mDb = this.db;

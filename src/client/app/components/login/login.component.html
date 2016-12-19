@@ -1,0 +1,5 @@
+<form (submit)="doLogin()">
+  <input  [(ngModel)]="userEmail" name="userEmail" [placeholder]="'LOGIN.EMAIL' | translate">
+  <input  [(ngModel)]="userPswd" name="userPswd" [placeholder]="'LOGIN.PASSWORD' | translate">
+  <button type="submit">{{'LOGIN.LOGIN' | translate}}</button>
+</form>

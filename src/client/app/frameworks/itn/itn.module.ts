@@ -1,33 +1,14 @@
 // angular
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { NativeScriptFormsModule } from "nativescript-angular/forms";
-import { NativeScriptHttpModule } from "nativescript-angular/http";
-import { NativeScriptModule } from "nativescript-angular/platform";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
-
-//import { CommonModule } from '@angular/common';
-//import { FormsModule } from '@angular/forms';
-//import { HttpModule } from '@angular/http';
-//import { RouterModule } from '@angular/router';
-
-// libs
-import { StoreModule } from '@ngrx/store';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 // app
-//import { ToolbarComponent } from './components/toolbar.component';
-//import { NavbarComponent } from './components/navbar.component';
-//import { NameListService } from './services/name-list.service';
+import { ITN_COMPONENTS } from './index';
+import { APP_PROVIDERS } from './index';
 import { MultilingualModule } from '../i18n/multilingual.module';
-//import { IMultilingualState } from '../i18n/services/multilingual.service';
-import { APP_COMPONENTS } from './';
-import { APP_PROVIDERS } from './';
-
-// state
-//export interface AppStoreI {
-//  i18n: IMultilingualState;
-//};
-
-//  ,MdIconRegistry
 
 
 /**
@@ -36,26 +17,22 @@ import { APP_PROVIDERS } from './';
 
 @NgModule({
   imports: [
-//    CommonModule,
-//    FormsModule,
-//    HttpModule,
-//    RouterModule,
-//    NativeScriptModule,
-//    NativeScriptFormsModule,
-//    NativeScriptHttpModule,
-//    NativeScriptRouterModule,
-    MultilingualModule,
-    StoreModule
+    CommonModule,
+    FormsModule,
+    HttpModule,
+    RouterModule,
+    MultilingualModule
   ],
   declarations: [
 //    ToolbarComponent,
 //    NavbarComponent,
-    ...APP_COMPONENTS
+    ...ITN_COMPONENTS
   ],
   providers: [
     ...APP_PROVIDERS
   ],
   exports: [
+    ...ITN_COMPONENTS,
     MultilingualModule
   ]
 })

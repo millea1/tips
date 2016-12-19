@@ -1,8 +1,0 @@
-<StackLayout #container>
-    <Image src="res://logo_login" stretch="none" horizontalAlignment="center"></Image -->
-
-    <TextField #userIdRef hint="User Id" keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="userId"></TextField>
-    <TextField #userPswdRef hint="Enter Password" secure="true" [(ngModel)]="userPswd"></TextField>
-
-    <Button [text]="'LOGIN.LOGIN' | translate" class="submit-button" (tap)="doLogin()"></Button>
-</StackLayout>

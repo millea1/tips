@@ -25,10 +25,10 @@ export class GlobalService {
   globalVarObserver:Observer<string>;
 
 
-  _apiBase: string = 'http://localhost:8080/itn/';
+//  _apiBase: string = 'http://localhost:8080/fresh/';
   //apiBase: ../app/;
 
-//  _apiBase: string = 'http://freshpreproduction-403747687.us-west-1.elb.amazonaws.com/dev/';
+  _apiBase: string = 'http://freshpreproduction-403747687.us-west-1.elb.amazonaws.com/dev/';
 
   private _currentDate = new Date();
   private _currentTimeStamp = Date.now();

@@ -30,7 +30,7 @@ export class PersistService {
     let addIt: Company;
 
     return this.sherpaService.getLocationMetadata().flatMap(locMetaData => this.itnUtils.itnParseResultObjData(locMetaData, new Set()))
-      .flatMap(companyRows => this.company.addCompanyRows(companyRows.data.companies))
+      .flatMap(companyRows => this.company.addCompanyRows(<any>companyRows.data.companies))
 
 //      {
 //      let look2 = response.data;

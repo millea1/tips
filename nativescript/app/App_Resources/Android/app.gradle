@@ -8,7 +8,7 @@
 android {  
   defaultConfig {  
     generatedDensities = []
-    applicationId = "com.yourdomain.appname"  
+    applicationId = "com.itn.tips"
   }  
   aaptOptions {  
     additionalParameters "--no-version-vectors"  

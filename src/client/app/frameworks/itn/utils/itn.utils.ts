@@ -1,5 +1,6 @@
 import { Injectable, Inject }     from '@angular/core';
 import { Observable } from 'rxjs';
+const objectAssign = require('object-assign');
 
 @Injectable()
 export class ItnUtilsService {
@@ -67,6 +68,7 @@ export class ItnUtilsService {
 };
 
   public itnParseHttpData(itnServiceData, objectToMergeOn): UtilityReturn {
+    console.log("topof itnParseHttpData: " + JSON.stringify(itnServiceData));
   var response = new UtilityReturn();
   //if no data
   if (itnServiceData === undefined || itnServiceData === null) {
@@ -76,6 +78,7 @@ export class ItnUtilsService {
   else {
     //if data with success as false or no "success" in json response
     if ( !(itnServiceData.data) || !(itnServiceData.status === 'SUCCESS')) {
+//      console.log("####1 ");
       this.itnError("Data" + this.itnStringify(itnServiceData));
       if (itnServiceData.error) {
         this.itnError(itnServiceData.error.message);
@@ -96,16 +99,21 @@ export class ItnUtilsService {
     else if (itnServiceData) {
         // Merge object
         if (objectToMergeOn) {
-          response.data = (<any>Object)(objectToMergeOn, itnServiceData.data);
+          response.data = (<any>Object).assign(objectToMergeOn, itnServiceData.data);
+//          console.log("####2A: " + JSON.stringify(itnServiceData.data));
+//          console.log("####2: " + JSON.stringify(objectToMergeOn));
         } else {
+//          console.log("####3 ");
           response.data = itnServiceData;
         }
     }
     else {
         this.itnError("Response is blank :" + this.itnStringify(itnServiceData));
+      console.log("####4 ");
         response.error = "Internal Server Error. [API Response Format Error]";
       }
     }
+//    console.log("merged object: " + JSON.stringify(objectToMergeOn));
   return response;
 }
 
@@ -193,11 +201,11 @@ export class ItnUtilsService {
 
       if (itnServiceData === undefined || itnServiceData.resultObj === undefined || !itnServiceData.resultObj || Object.keys(itnServiceData.resultObj).length < 1 ) {
         response.error = "Internal Server Error - No Data Returned. [API Issue]";
-        return response;
+        parseObserver.next(response);
       } else if (!(itnServiceData.status === 'SUCCESS')) {
         response.data = itnServiceData.resultObj;
         response.error = 'Non-SUCCESS status returned';
-        return response;
+        parseObserver.next(response);
       }
       else {
         // Merge object
@@ -237,8 +245,6 @@ export class ItnUtilsService {
       return response;
     });
 
-    return null;
-  //if no data
 }
 
   public itnFindKeyFromValue(obj, value) {

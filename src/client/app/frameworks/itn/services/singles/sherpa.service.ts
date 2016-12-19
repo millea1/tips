@@ -4,7 +4,8 @@ import { GlobalService }  from './global.service';
 import { ItnUtilsService }       from '../../utils/itn.utils';
 import { AppUser }        from './app-user.service';
 import {Observable} from "rxjs/Observable";
-
+import "rxjs/add/operator/do";
+import "rxjs/add/operator/map";
 
 @Injectable()
 export class SherpaService {
@@ -77,6 +78,8 @@ export class SherpaService {
 
 
   invokeSherpaEndPoint(parms:URLSearchParams , method:string, paramOrder:Array<string>) : Observable<Response> {
+
+    console.log("invokeSherpaEndPoint: " + this.globalService.apiBase + "json/?" + parms.toString());
 
     return this.http.request(this.globalService.apiBase + "json", {search: parms})
       .retry(3)

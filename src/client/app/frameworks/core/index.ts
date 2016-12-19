@@ -1,4 +1,4 @@
-// utilities
+ // utilities
 // generally static helpers (non-injectables)
 export * from './utils/index';
 

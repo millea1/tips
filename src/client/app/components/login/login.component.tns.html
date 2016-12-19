@@ -1,0 +1,9 @@
+<StackLayout #container>
+    <Image src="res://logo_login" stretch="none" horizontalAlignment="center"></Image>
+
+    <TextField #userIdRef [(ngModel)]="userEmail" hint="{{'LOGIN.EMAIL' | translate}}" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+    <TextField #userPswdRef [(ngModel)]="userPswd"hint="{{'LOGIN.PASSWORD' | translate}}" secure="true" ></TextField>
+
+    <!-- Button [text]="isLoggingIn ? ({{'LOGIN.LOGIN' | translate}}) : ({{'LOGIN.SESSION_STARTED' | translate}})" (tap)="doLogin()"></Button -->
+    <Button [text]="'LOGIN.LOGIN' | translate" class="submit-button" (tap)="doLogin()"></Button>
+</StackLayout>
