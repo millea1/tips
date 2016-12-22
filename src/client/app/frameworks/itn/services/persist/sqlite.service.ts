@@ -8,6 +8,8 @@ import { ICOMPANY_ROW, CompanyRow }  from './persist.model';
 import {ItnUtilsService} from "../../utils/itn.utils";
 
 
+
+
 var sqlite = require("nativescript-sqlite");
 const dbname = "merchandise.sqlite";
 const all = Promise.all;
@@ -19,7 +21,8 @@ export class SQLiteService {
   page = null;
   _self = this;
 
-  constructor(private itnUtils: ItnUtilsService) {
+  constructor(
+              private itnUtils: ItnUtilsService) {
 
     // TODO exists but not open;
     if (!sqlite.exists(dbname)) {
@@ -84,6 +87,8 @@ export class Company {
   type: number;
 
   private companyItem: Company;
+  private SqlStmtInsPrfx: string = "insert into company((id, companyName, type, country, dateFormat, emailIds, language, status, timeZone) values(";
+
 
   constructor(
               @Inject(ICOMPANY_ROW) companyRow: CompanyRow
@@ -91,23 +96,25 @@ export class Company {
   {
     this.companyName = companyRow.companyName;
     this.type = companyRow.type;
-    if (companyRow.country) this.country = companyRow.country;
-    if (companyRow.dateFormat) this.dateFormat = companyRow.dateFormat;
-    if (companyRow.emailIds) this.emailIds = companyRow.emailIds;
-    if (companyRow.language) this.language = companyRow.language;
-    if (companyRow.status) this.status = companyRow.status;
-    if (companyRow.timeZone) this.timeZone = companyRow.timeZone;
-    if (companyRow.id) this.id = companyRow.id;
+    if (companyRow.country) { this.country = companyRow.country } else { this.country = null };
+    if (companyRow.dateFormat) { this.dateFormat = companyRow.dateFormat } else { this.dateFormat = null };
+    if (companyRow.emailIds) { this.emailIds = companyRow.emailIds } else { this.emailIds = null };
+    if (companyRow.language) { this.language = companyRow.language } else { this.language = null };
+    if (companyRow.status) { this.status = companyRow.status } else { this.status = null };
+    if (companyRow.timeZone) { this.timeZone = companyRow.timeZone } else { this.timeZone = null };
+    if (companyRow.id) { this.id = companyRow.id }  else { this.id = null };
   }
 
 
   addCompanyRows( companyRows : Array<CompanyRow>) : Observable<string> {
     console.log("incoming companyRow count: " + companyRows.length);
+
+/*
     for (var i = 0; i < companyRows.length; i++) {
       console.log(JSON.stringify(companyRows[i]));
     }
-/*
-    return Observable.create(dbAddObserver => {
+*/
+    return Observable.create(coAddObserver => {
 //        let mDb = this.db;
 //        this.db.execSQL("BEGIN TRANSACTION");
         let objArray:Array<CompanyRow> = companyRows;
@@ -115,9 +122,12 @@ export class Company {
         for (var idx = 0; idx < objArray.length; idx++) {
           let addIt = new Company(objArray[idx]);
           companyArray[idx] = addIt;
+          console.log(JSON.stringify(addIt));
+
+
         };
 
-        dbAddObserver.next('SUCCESS');
+          coAddObserver.next('SUCCESS');
       },
       error => {
         console.error(error);
@@ -126,10 +136,10 @@ export class Company {
     ).map((response) => {
       return response;
     });
-*/
-    return null;
+
 
   }
+
 }
 
 
@@ -140,7 +150,7 @@ export class Company {
  Promise.resolve().then (function () {
 
  for(let item: Object in companySet) {
- console.log('Adding company row: ' + item);
+ console.log('Adding poccompany row: ' + item);
  Object.assign(this, item);
  this.save();
  };
@@ -148,10 +158,10 @@ export class Company {
  });
  */
 /*
- return db.transaction('rw', db.company, async () => {
+ return db.transaction('rw', db.poccompany, async () => {
 
  for(let item: Company in companyRows) {
- console.log('Adding company row: ' + item);
+ console.log('Adding poccompany row: ' + item);
  Object.assign(this, item);
  this.save();
  };

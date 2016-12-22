@@ -4,17 +4,27 @@ import 'rxjs/add/operator/map';
 import { GlobalService }  from '../singles/global.service';
 import { SherpaService }  from '../singles/sherpa.service';
 //import { LocalDbModel }  from './local.db.model';
+import { NameListService } from '../../services/name-list.service';
 import { ItnUtilsService }  from '../../utils/itn.utils';
 import { ICOMPANY_ROW, CompanyRow }  from './persist.model';
 import { IUTILITY_RETURN, UtilityReturn }  from '../../interfaces/interfaces';
 import { AppUser }        from '../singles/app-user.service';
 import { SQLiteService, Company }        from './sqlite.service';
 
+// temp
+import { Store } from '@ngrx/store';
+
+// app
+import { IAppState, getNames } from '../../../ngrx/index';
+import * as nameList from '../../../itn/state/actions';
+
 
 @Injectable()
 export class PersistService {
 
-  constructor(//    public localDbModel: LocalDbModel,
+  constructor(  //    public localDbModel: LocalDbModel,
+      private store: Store<IAppState>, // temp
+      private nameListService: NameListService,
               private sherpaService: SherpaService,
               private globalService: GlobalService,
               private db: SQLiteService,
@@ -30,16 +40,68 @@ export class PersistService {
     let addIt: Company;
 
     return this.sherpaService.getLocationMetadata().flatMap(locMetaData => this.itnUtils.itnParseResultObjData(locMetaData, new Set()))
-      .flatMap(companyRows => this.company.addCompanyRows(<any>companyRows.data.companies))
+//        .flatMap(companyRows => this.company.addCompanyRows(<any>companyRows.data.companies))
+        .flatMap(companyRows => this.populatePocCompanyNames(<any>companyRows.data.companies))
 
+/*
+        .flatMap(companyRowArray => {
+          let objArray:Array<CompanyRow> = companyRowArray.data.companies;
+          for (var idx = 0; idx < objArray.length; idx++) {
+            let companyRow = objArray[idx];
+            this.store.dispatch(new nameList.AddAction(companyRow.companyName));
+            console.log(JSON.stringify(companyRow));
+          };
+
+        });
+*/
+    /*
+        .subscribe(
+            (companyRows) => {
+              return this.populatePocCompanyNames(<any>companyRows.data.companies);
+            },
+            error => {
+              this.itnUtils.itnLog("Error caught in login.component.doLoginSequence *******" + error);
+              console.error(error);
+            }
+        );
+
+ */
 //      {
 //      let look2 = response.data;
 //      return look2
 
   }
 
+  populatePocCompanyNames( companyRows : Array<CompanyRow>) : Observable<string> {
+
+    return Observable.create(pocObserver => {
+
+        let objArray:Array<CompanyRow> = companyRows;
+        for (var idx = 0; idx < objArray.length; idx++) {
+            let companyRow = objArray[idx];
+            this.store.dispatch(new nameList.AddAction(companyRow.companyName));
+            console.log(companyRow.companyName); //JSON.stringify(companyRow)
+        };
+
+        console.log("co names: " + this.nameListService.getCompanyNames());
+
+        pocObserver.next('SUCCESS');
+    }).catch(error => {
+      let look = error;
+      console.log("error in populatePocCompanyNames...", error)
+      Observable.throw(error);
+    });
+
+
+  }
+
 
 }
+
+
+
+
+
 //        itnLog('New LOCATION meta data available, inserting..'+JSON.stringify(locMetaData));
 
 //    var junk = itnParseResultObjData(locMetaData.data, LocationMetaCompanies).data;

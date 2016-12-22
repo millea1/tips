@@ -1,6 +1,7 @@
 import { Injectable, Inject }     from '@angular/core';
 import { Observable } from 'rxjs';
-const objectAssign = require('object-assign');
+var validator = require("email-validator");
+//const objectAssign = require('object-assign');
 
 @Injectable()
 export class ItnUtilsService {
@@ -10,6 +11,10 @@ export class ItnUtilsService {
   )
   {  }
 
+  isValidEmail(email: string) {
+    console.log("***** email validate: " + validator.validate(email));
+    return validator.validate(email);
+  }
 
   public  itnLog(str, err?) {
   try {
@@ -68,7 +73,7 @@ export class ItnUtilsService {
 };
 
   public itnParseHttpData(itnServiceData, objectToMergeOn): UtilityReturn {
-    console.log("topof itnParseHttpData: " + JSON.stringify(itnServiceData));
+//    console.log("top of itnParseHttpData: " + JSON.stringify(itnServiceData));
   var response = new UtilityReturn();
   //if no data
   if (itnServiceData === undefined || itnServiceData === null) {
@@ -210,6 +215,7 @@ export class ItnUtilsService {
       else {
         // Merge object
         if (objectToMergeOn) {
+          console.log("#1: " + JSON.stringify(itnServiceData.resultObj));
           response.data = (<any>Object).assign(objectToMergeOn, itnServiceData.resultObj);
         } else {
           response.data = itnServiceData.resultObj;

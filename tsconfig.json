@@ -5,9 +5,9 @@
     "declaration": false,
     "removeComments": true,
     "noLib": false,
+    "lib": ["es2016", "dom"],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es2015"],
     "sourceMap": true,
     "pretty": true,
     "allowUnreachableCode": false,
@@ -21,7 +21,10 @@
       "./node_modules"
     ],
     "types": [
-      "node"
+      "node",
+      "jasmine",
+      "protractor",
+      "systemjs"
     ]
   },
   "exclude": [

@@ -4,20 +4,21 @@ import { Observable } from 'rxjs/Observable';
 
 // app
 import { BaseComponent, RouterExtensions } from '../../frameworks/core/index';
-//import { NAME_LIST_ACTIONS } from '../../frameworks/sample/index';
+import { IAppState, getCompanyNames } from '../../frameworks/ngrx/index';
+import * as nameList from '../../frameworks/itn/state/actions';
 
 @BaseComponent({
 //  moduleId: module.id,
-  selector: 'sd-home',
+  selector: 'poc-home',
   templateUrl: './app/components/home/itn.home.component.html',
   styleUrls: ['./app/components/home/itn.home.component.css']
 })
 export class ItnHomeComponent {
-  public names$: Observable<any>;
+  public companynames$: Observable<any>;
   public newName: string = '';
 
-  constructor(private store: Store<any>, public routerext: RouterExtensions) {
-    this.names$ = store.select('names');
+  constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {
+    this.companynames$ = store.let(getCompanyNames);
   }
 
   /*
@@ -26,6 +27,8 @@ export class ItnHomeComponent {
    */
   addName(): boolean {
 //    this.store.dispatch({ type: NAME_LIST_ACTIONS.ADD, payload: this.newName });
+    console.log("at addName");
+    this.store.dispatch(new nameList.AddAction(this.newName));
     this.newName = '';
     return false;
   }
@@ -36,7 +39,7 @@ export class ItnHomeComponent {
     this.routerext.navigate(['/about'], {
       transition: {
         duration: 1000,
-        name: 'slideTop',
+        companyname: 'slideTop',
       }
     });
   }

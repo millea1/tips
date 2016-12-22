@@ -6,6 +6,7 @@
   "ABOUT_ADD": "Vous en voulez plus? Ajoutez-les vous-même !",
   "ABOUT_REWARD": "En récompense, voici une liste de géniaux informaticiens :",
   "INPUT_HINT": "Ajouter un nouvel informaticien...",
+  "INPUT_COMPANY_HINT": "Entrez un nouveau nom de société...",
   "ADD_BTN_TEXT": "Ajouter",
   "SUCCESS_MSG": "Votre déploiement d'Angular Seed Advanced a parfaitement fonctionné.",
 

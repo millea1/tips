@@ -39,6 +39,7 @@ import { combineReducers } from '@ngrx/store';
  */
 import * as fromMultilingual from '../../i18n/index';
 import * as fromSample from '../../sample/index';
+import * as fromItn from '../../itn';
 
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
@@ -47,6 +48,7 @@ import * as fromSample from '../../sample/index';
 export interface IAppState {
   i18n: fromMultilingual.IMultilingualState;
   sample: fromSample.ISampleState;
+  itn: fromItn.IItnState;
 };
 
 /**
@@ -58,7 +60,8 @@ export interface IAppState {
  */
 const reducers = {
   i18n: fromMultilingual.reducer,
-  sample: fromSample.reducer
+  sample: fromSample.reducer,
+  itn: fromItn.reducer
 };
 
 const developmentReducer: ActionReducer<IAppState> = compose(storeFreeze, combineReducers)(reducers);
@@ -79,5 +82,11 @@ export function getNameListState(state$: Observable<IAppState>) {
   return state$.select(s => s.sample);
 }
 
+export function getCompanyNameListState(state$: Observable<IAppState>) {
+  console.log("at getCompanyNameListState in app.state")
+  return state$.select(s => s.itn);
+}
+
 export const getLang: any = compose(fromMultilingual.getLang, getMultilingualState);
 export const getNames: any = compose(fromSample.getNames, getNameListState);
+export const getCompanyNames: any = compose(fromItn.getCompanyNames, getCompanyNameListState);

@@ -27,7 +27,6 @@ export const ICOMPANY_ROW_DI: CompanyRow = {
 };
 
 
-
 export const LOCAL_TABLES = {
   COMPANY: 'company',
   COMPANYORIGIN: 'companyorigin',

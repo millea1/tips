@@ -4,7 +4,7 @@ import "rxjs/add/operator/catch";
 import "rxjs/add/observable/throw";
 import "rxjs/add/observable/empty";
 import { Router } from '@angular/router';
-import { ActivatedRoute, Params } from '@angular/router';
+// import { ActivatedRoute, Params } from '@angular/router';
 // import { WindowNative }  from '../../../../../shared/core/services/window-native.service';
 import { GlobalService }  from '../../frameworks/itn/services/singles/global.service';
 import { LoginService }  from '../../frameworks/itn/services/login.service';
@@ -41,25 +41,32 @@ export class LoginComponent {  // implements ControlValueAccessor
 
 
   constructor(private appUser: AppUser,
-    private route: ActivatedRoute,
+    private router: Router,
     private loginService: LoginService,
     private itnUtils: ItnUtilsService)  //  public windowNative: WindowNative
     {
     }
 
   doLogin(form: any): void {
-  var idx;
-  var roles;
+//  var idx;
+//  var roles;
+
+    if (!this.itnUtils.isValidEmail(this.userEmail)) {
+      alert("Enter a valid email address.");
+      return;
+    }
     this.appUser.userid = this.userEmail;
     this.appUser.pswd = this.userPswd;
 
 //    console.log('***** userid: ' + this.userEmail);
 //    console.log('*** password: '+ this.userPswd);
 
-    this.loginService.doLoginSequence(this.appUser.userid, this.appUser.pswd).subscribe((itnResponse) => {
-      let look = this.appUser.token;
-      console.log("Token: " + this.appUser.token);
-
+    this.loginService.doLoginSequence(this.appUser.userid, this.appUser.pswd)
+        .subscribe(
+            (itnResponse) => {
+              let look = this.appUser.token;
+              console.log("Token: " + this.appUser.token);
+              this.router.navigate(["/home"]);
     },
       error => {
         this.itnUtils.itnLog("Error caught in login.component.doLoginSequence *******" + error);

@@ -6,6 +6,7 @@
   "ABOUT_ADD": "¿Quieres más? Añadir a ti mismo!",
   "ABOUT_REWARD": "Para recompensa, aquí hay una lista de científicos informáticos impresionantes:",
   "INPUT_HINT": "Introduzca un nuevo científico de la computación...",
+  "INPUT_COMPANY_HINT": "Ingrese un nombre de empresa nuevo...",
   "ADD_BTN_TEXT": "Añadir",
   "SUCCESS_MSG": "Su despliegue de Angular avanzada Semilla funcionó a la perfección.",
 

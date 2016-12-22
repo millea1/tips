@@ -73,8 +73,9 @@ export class LoginService {
         this.metaAction = this.postAuthenticateInit(roles);
 
         if (this.metaAction === this.ActionEnum.LOCATION) {
+          console.log("#1 call to loadLocationMetaData...")
           _self.localDbService.loadLocationMetaData()
-          //            .switchMa p((metaLoaded) => {
+          //            .switchMap((metaLoaded) => {
           //              let look = metaLoaded;
 
           //            })
@@ -95,6 +96,7 @@ export class LoginService {
 
         }
         else if (this.metaAction === this.ActionEnum.LOCATION_AND_META) {
+          console.log("#2 call to loadLocationMetaData...")
           _self.localDbService.loadLocationMetaData()
           //            .switchMap((metaLoaded) => {
           //              let look = metaLoaded;

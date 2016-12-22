@@ -3,7 +3,7 @@
 import { ICOMPANY_ROW, ICOMPANY_ROW_DI } from './services';
 import { SQLiteService, PersistService, LoginService } from './services';
 import { Company } from './services';
-import { AppUser } from './services';
+import { AppUser, NameListService } from './services';
 import { GlobalService } from './services';
 import { SherpaService } from './services';
 import { FreshUtilsService } from './utils';
@@ -16,6 +16,8 @@ import { ItnUtilsService } from './utils';
 export * from './interfaces';
 export * from './services';
 export * from './utils';
+export * from './state'
+
 
 export const ITN_COMPONENTS: Array<any> = [
 ];
@@ -30,4 +32,5 @@ export const APP_PROVIDERS: Array<any> = [
   ,PersistService
   ,SQLiteService
   ,ItnUtilsService
+  ,NameListService
   ,FreshUtilsService];
