@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 // libs
 import { Store } from '@ngrx/store';
+import { ConfigService } from 'ng2-config';
 
 // app
 import { ItnAppComponent } from '../../app/components/itn.app.component';

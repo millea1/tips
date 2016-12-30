@@ -12,11 +12,14 @@ export function reducer(
       });
 
     case actions.ActionTypes.NAME_ADDED:
+      console.log("payload: " + action.payload);
+      console.log("prestate: " + state.companynames);
       return (<any>Object).assign({}, state, {
         companynames: [...state.companynames, action.payload]
       });
 
     default:
+      console.log("state: " + JSON.stringify(this.state));
       return state;
   }
 }
